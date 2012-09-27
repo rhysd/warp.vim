@@ -12,10 +12,6 @@ In this plugin, `asdfghjkl;` is mapping to `1234567890`.
 
 I'll show some examples.
 
-
-- When a cursor is on line 100, and you type `mfg`, you will jump to line 145.
-- When 
-
 <table>
 <tr>
 <th>before</th><th>your</th><th>after</th>
