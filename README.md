@@ -14,13 +14,23 @@ I'll show some examples.
 
 <table>
 <tr>
-<th>before</th><th>your</th><th>after</th>
-</tr>
-<tr>
-<th>line num</th><th>input</th><th>line num</th>
+<th>
+    before<br>
+    line number
+</th>
+<th>
+    your<br>
+    input
+</th>
+<th>
+    after<br>
+    line number
+</th>
 </tr>
 <tr>
 <td>100</td><td>mfg</td><td>145</td>
+</tr>
+<tr>
 <td>100</td><td>mk;</td><td>180</td>
 </tr>
 </table>
