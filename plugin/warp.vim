@@ -21,7 +21,6 @@ if !exists('g:warp_map_to') ||
 endif
 
 function! s:conv(c)
-
     for i in range(0,9)
         if g:warp_map_to[i] ==# a:c
             return i
@@ -31,9 +30,14 @@ function! s:conv(c)
     return -1
 endfunction
 
+function! s:input_char()
+    let in = nr2char(getchar())
+    return in =~# '\d' ? in : s:conv(in)
+endfunction
+
 function! s:jump()
-    let tens = s:conv(nr2char(getchar()))
-    let digits = s:conv(nr2char(getchar()))
+    let tens = s:input_char()
+    let digits = s:input_char()
 
     if tens == -1 || digits == -1
         return
