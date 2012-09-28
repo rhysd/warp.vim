@@ -43,8 +43,9 @@ function! s:jump()
         return
     endif
 
-    let lower2digits = tens * 10 + digits
-    silent execute getpos('.')[1][:-len(lower2digits)-1].lower2digits
+    let lower2digits = tens.digits
+    echo line('.')[:-3].lower2digits
+    silent execute line('.')[:-3].lower2digits
 
 endfunction
 
