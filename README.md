@@ -9,8 +9,11 @@ Additional, your hands need not leave a home position because
 you don't type number keys.
 
 In this plugin, `asdfghjkl;` is mapping to `1234567890`.
+This mapping is controled by `g:warp_map_to`. Please see `plugin/warp.vim`
+to get more information about it.
 
-I'll show some examples.
+
+I'll show some examples in above setting.
 
 <table>
 <tr>

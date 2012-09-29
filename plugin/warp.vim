@@ -15,6 +15,8 @@ if !exists('g:warp_map_to') ||
 
     " mapping from the key you type to the number inputted actually
     " g:warp_map_to[3] = 'd' means that if you type 'd', 3 is inputted
+    " NOTE: This variable may be changed in the future. Because this setting
+    "       can map a number to only one key.
     "
     "                     0    1    2    3    4    5    6    7    8    9
     let g:warp_map_to = [';', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l']
