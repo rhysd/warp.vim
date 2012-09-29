@@ -20,6 +20,8 @@ if !exists('g:warp_map_to') ||
     let g:warp_map_to = [';', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l']
 endif
 
+let g:warp_show_input = get(g:, 'warp_show_input', 1)
+
 function! s:conv(c)
     for i in range(0,9)
         if g:warp_map_to[i] ==# a:c
@@ -40,6 +42,7 @@ function! s:jump(num_of_digits)
     for _ in range(1,a:num_of_digits)
         let d = s:input_char()
         if d == -1 | return | endif
+        if g:warp_show_input | echon d | endif
         call add(digits, d)
     endfor
 
