@@ -24,37 +24,9 @@ endif
 
 let g:warp_show_input = get(g:, 'warp_show_input', 1)
 
-function! s:conv(c)
-    for i in range(0,9)
-        if g:warp_map_to[i] ==# a:c
-            return i
-        endif
-    endfor
-
-    return -1
-endfunction
-
-function! s:input_char()
-    let in = nr2char(getchar())
-    return in =~# '\d' ? in : s:conv(in)
-endfunction
-
-function! s:jump(num_of_digits)
-    let digits = []
-    for _ in range(1,a:num_of_digits)
-        let d = s:input_char()
-        if d == -1 | return | endif
-        if g:warp_show_input | echon d | endif
-        call add(digits, d)
-    endfor
-
-    let lower_digits = join(digits,'')
-    silent execute line('.')[:-a:num_of_digits-1].lower_digits
-endfunction
-
-nnoremap <silent><Plug>(warp_lower1digit_trigger)  :<C-u>call <SID>jump(1)<CR>
-nnoremap <silent><Plug>(warp_lower2digits_trigger) :<C-u>call <SID>jump(2)<CR>
-nnoremap <silent><Plug>(warp_lower3digits_trigger) :<C-u>call <SID>jump(3)<CR>
+nnoremap <silent><Plug>(warp_lower1digit_trigger)  :<C-u>call warp#jump_with_digits(1)<CR>
+nnoremap <silent><Plug>(warp_lower2digits_trigger) :<C-u>call warp#jump_with_digits(2)<CR>
+nnoremap <silent><Plug>(warp_lower3digits_trigger) :<C-u>call warp#jump_with_digits(3)<CR>
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
