@@ -35,21 +35,20 @@ function! s:input_char()
     return in =~# '\d' ? in : s:conv(in)
 endfunction
 
-function! s:jump()
-    let tens = s:input_char()
-    let digits = s:input_char()
+function! s:jump(num_of_digits)
+    let digits = []
+    for _ in range(1,a:num_of_digits)
+        let d = s:input_char()
+        if d == -1 | return | endif
+        call add(digits, d)
+    endfor
 
-    if tens == -1 || digits == -1
-        return
-    endif
-
-    let lower2digits = tens.digits
-    echo line('.')[:-3].lower2digits
-    silent execute line('.')[:-3].lower2digits
-
+    let lower_digits = join(digits,'')
+    echo line('.')[:-3].lower_digits
+    silent execute line('.')[:-a:num_of_digits-1].lower_digits
 endfunction
 
-nnoremap <silent><Plug>(warp_lower2digits_trigger) :<C-u>call <SID>jump()<CR>
+nnoremap <silent><Plug>(warp_lower2digits_trigger) :<C-u>call <SID>jump(2)<CR>
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
