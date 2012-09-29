@@ -44,11 +44,12 @@ function! s:jump(num_of_digits)
     endfor
 
     let lower_digits = join(digits,'')
-    echo line('.')[:-3].lower_digits
     silent execute line('.')[:-a:num_of_digits-1].lower_digits
 endfunction
 
+nnoremap <silent><Plug>(warp_lower1digit_trigger)  :<C-u>call <SID>jump(1)<CR>
 nnoremap <silent><Plug>(warp_lower2digits_trigger) :<C-u>call <SID>jump(2)<CR>
+nnoremap <silent><Plug>(warp_lower3digits_trigger) :<C-u>call <SID>jump(3)<CR>
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
